@@ -30,7 +30,7 @@ const start = () => {
     
         if (text === "/start") {
             await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/7.webp');
-            return bot.sendMessage(chatId, `Привет`);
+            return bot.sendMessage(chatId, `Привет друг! Я первый бот, созданный homie43. Зайди в меню и выбери то, что ты хочешь!`);
         }
     
         if (text === "/info") {
@@ -53,9 +53,11 @@ const start = () => {
         }
 
         if (data == chats[chatId]) {
-            return bot.sendMessage(chatId, `Ура! Угадал цифру ${chats[chatId]}`, againOptions);
+            await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/2.webp');
+            return bot.sendMessage(chatId, `Ура! Ты угадал цифру ${chats[chatId]}`, againOptions);
         } else {
-            return bot.sendMessage(chatId, `Нет:( Цифра ${data} не подходит. Бот загадал цифру ${chats[chatId]}. Попробуй еще!`, againOptions);
+            await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/ea5/382/ea53826d-c192-376a-b766-e5abc535f1c9/3.webp');
+            return bot.sendMessage(chatId, `Нет:( Цифра ${data} не подходит. Бот загадал цифру ${chats[chatId]}. Попробуй еще раз!`, againOptions);
         }
     });
 }
